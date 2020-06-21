@@ -9,7 +9,7 @@
 
           </view>
        <mp-badge>
-  <text>详细信息</text>
+  <text @click="openResult">详细信息</text>
 </mp-badge>
 
 <!-- 默认状态 -->
@@ -23,7 +23,7 @@
   <mp-navbar :tabs="tabs" activeIndex=0 @tabClick="tabClick"></mp-navbar>
 
   <mp-searchbar :isFocus=true :inputValue="inputValue" :placeholder="placeholder" @input="input" @blur="blur" @focus="focus" @confirm="confirm"></mp-searchbar>
-
+ <navigator url="/pages/counter/main" hover-class="navigator-hover">跳转到新页面</navigator>
   </div>
 </template>
 
@@ -154,6 +154,9 @@ export default {
   },
 
   methods: {
+     openResult () {
+          wx.navigateTo({url: '/pages/counter/main'})
+        },
     showMulLinkageTwoPicker() {
       this.$refs.mpPicker.show();
     },
